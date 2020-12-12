@@ -1,5 +1,5 @@
 class MeasureJob < ApplicationJob
-  queue_as :default
+  queue_as :measurements
 
   def perform(*args)
     Measurement.create(
