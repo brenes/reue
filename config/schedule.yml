@@ -1,0 +1,4 @@
+measurements:
+  class: MeasureJob
+  cron: "* * * * *"
+  queue: measurements
