@@ -8,7 +8,9 @@ set :repo_url, "git@github.com:brenes/reue.git"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, "/home/pi/workspaces/reue"
+set :deploy_to, "/home/pi/workspaces/reue"
+
+set :migration_role, :app
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh

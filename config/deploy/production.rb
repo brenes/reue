@@ -4,7 +4,8 @@
 # You can define all roles on a single server, or split them:
 
 server "raspi", user: "pi", roles: %w{app db web}
-
+set :branch, :main
+set :branch, 'feature/deploy'
 
 # Configuration
 # =============
