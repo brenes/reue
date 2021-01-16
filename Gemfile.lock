@@ -74,6 +74,9 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (>= 1.9.0)
+    capistrano-asdf (0.0.3)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
     capistrano-bundler (2.0.1)
       capistrano (~> 3.1)
     capistrano-rails (1.6.1)
@@ -239,6 +242,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capistrano (~> 3.10)
+  capistrano-asdf
   capistrano-rails (~> 1.6)
   capybara (>= 3.26)
   jbuilder (~> 2.7)
