@@ -5,7 +5,6 @@
 
 server "raspi", user: "pi", roles: %w{app db web}
 set :branch, :main
-set :branch, 'feature/deploy'
 
 # Configuration
 # =============
