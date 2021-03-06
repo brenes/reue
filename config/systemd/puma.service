@@ -1,0 +1,40 @@
+[Unit]
+Description=Reue Puma HTTP Server
+After=network.target
+
+# Uncomment for socket activation (see below)
+# Requires=puma.socket
+
+[Service]
+# Puma supports systemd's `Type=notify` and watchdog service
+# monitoring, if the [sd_notify](https://github.com/agis/ruby-sdnotify) gem is installed,
+# as of Puma 5.1 or later.
+# On earlier versions of Puma or JRuby, change this to `Type=simple` and remove
+# the `WatchdogSec` line.
+Type=notify
+
+# If your Puma process locks up, systemd's watchdog will restart it within seconds.
+WatchdogSec=10
+
+# Preferably configure a non-privileged user
+User=pi
+Group=pi
+UMask=0002
+
+# The path to the your application code root directory.
+WorkingDirectory=/home/pi/workspaces/reue/current
+
+# Helpful for debugging socket activation, etc.
+# Environment=PUMA_DEBUG=1
+Environment=RAILS_ENV=production
+
+# SystemD will not run puma even if it is in your path. You must specify
+# an absolute URL to puma. For example /usr/local/bin/puma
+# Alternatively, create a binstub with `bundle binstubs puma --path ./sbin` in the WorkingDirectory
+# ExecStart=/home/pi/workspaces/reue/current/bin/puma -C /home/pi/workspaces/reue/current/config/puma.rb /home/pi/workspaces/reue/current/config.ru
+ExecStart=/home/pi/.asdf/installs/ruby/2.7.0/bin/bundle exec puma -C config/puma.rb config.ru
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
